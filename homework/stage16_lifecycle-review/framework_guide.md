@@ -41,13 +41,6 @@
 
 ---
 
-## Stakeholder Summary (1–3 bullets)
-- 
-- 
-- 
-
----
-
 ## Monitoring & Handoffs (short)
 - **Data metrics:** freshness, null rate, schema hash (thresholds)
 - **Model metrics:** rolling RMSE/R² (window & alert)
