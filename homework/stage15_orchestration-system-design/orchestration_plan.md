@@ -65,9 +65,3 @@ My project can be framed as a 5-step pipeline:
 - **Automate Now:** Cleaning, feature engineering, training (can be wrapped in simple CLI Python scripts). These are repetitive and deterministic.  
 - **Manual for Now:** Scenario design, stakeholder reporting, and dashboard polish remain manual because they require interpretation.  
 - **Future Automation:** Full scheduling (cron/Prefect/Airflow) once pipeline stabilizes.
-
----
-
-## Diagram
-
-*(You can sketch a simple DAG and export as PNG/PDF — optional but recommended.)*
