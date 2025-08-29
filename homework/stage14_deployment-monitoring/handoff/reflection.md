@@ -1,0 +1,8 @@
+# Stage 14: Deployment & Monitoring Reflection
+
+Deploying a predictive model into production introduces several credible risks that must be proactively managed. The most likely failure modes include schema drift when input data formats change, rising null or missing values due to upstream data pipeline issues, and delayed or incorrect labels that undermine retraining. On the modeling side, the model may degrade when market conditions shift, causing calibration errors or unstable coefficients. At the system layer, we face risks of latency spikes or job failures, while at the business level, we risk reduced trust if approval or hit rates diverge from expectations.
+
+Monitoring must therefore span four layers. For **Data**, I would track freshness (max minutes since last batch), null rates per key field (<5%), and a schema hash to catch breaking changes. For the **Model**, I would log rolling MAE and R² weekly, triggering alerts if MAE increases by >20% or if R² falls below 0.6. For the **System**, I would monitor p95 latency (<200ms), error rates, and pipeline success ratios. Finally, for **Business**, I would track acceptance rate and decision consistency compared with historical baselines.
+
+Ownership is equally critical. Platform engineers should own data/system metrics and respond to alerts, while the analytics team reviews model metrics weekly and recommends retraining when drift is detected. Business analysts should review KPI dashboards each month to ensure alignment with objectives. Issues should be logged in a shared ticketing system, with retraining scheduled quarterly or triggered when population stability index exceeds 5%. Clear roles and dashboards ensure risks are visible, responsibilities are explicit, and handoffs are smooth.
+
